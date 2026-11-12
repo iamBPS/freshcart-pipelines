@@ -1,7 +1,9 @@
 
 import duckdb
-from config import DB_PATH
-
+try:
+    from config import DB_PATH
+except ModuleNotFoundError:
+    from ..config import DB_PATH
 
 def get_connection():
     """Create a connection to the local FreshCart database."""
