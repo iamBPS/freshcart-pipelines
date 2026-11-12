@@ -1,13 +1,18 @@
-
 from sklearn.model_selection import train_test_split
 
+if 'transformer' not in globals():
+    from mage_ai.data_preparation.decorators import transformer
 
-def transform(df):
+if 'test' not in globals():
+    from mage_ai.data_preparation.decorators import test
+
+
+@transformer
+def transform(df, **kwargs):
     """
     Split the Iris dataset into 80% training
     data and 20% testing data.
     """
-
     output = df.copy()
 
     train_indices, test_indices = train_test_split(
@@ -21,3 +26,10 @@ def transform(df):
     output.loc[test_indices, "split"] = "test"
 
     return output
+
+
+@test
+def test_output(df):
+    assert df is not None, "Prepared dataset is missing"
+    assert (df["split"] == "train").sum() == 120
+    assert (df["split"] == "test").sum() == 30
