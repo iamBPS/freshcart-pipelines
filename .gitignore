@@ -8,3 +8,16 @@ __pycache__/
 .venv/
 venv/
 .ipynb_checkpoints/
+<CodeBlock language="gitignore" editable>
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+data/warehouse/
+data/landing/
+*.duckdb
+*.wal
+</CodeBlock>
