@@ -39,6 +39,10 @@ SELECT
     ) AS loyalty_points
 FROM enriched;
 
+-- Assignment bonus target name; retain gold.orders for existing Part B tests.
+CREATE OR REPLACE VIEW gold.fct_orders AS
+SELECT * FROM gold.orders;
+
 CREATE OR REPLACE TABLE gold.daily_revenue AS
 SELECT
     order_date,

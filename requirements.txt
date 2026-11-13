@@ -4,3 +4,4 @@ scikit-learn
 pytest
 duckdb
 mage-ai==0.9.80
+pika
